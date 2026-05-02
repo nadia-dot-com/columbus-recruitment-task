@@ -1,0 +1,1 @@
+//if infinit scroll "use client"
