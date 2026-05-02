@@ -1,0 +1,29 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  background-color: var(--accent-color);
+  color: #000;
+  transition: background-color 0.2s ease;
+  opacity: 1;
+}
+
+button:hover {
+  background-color: var(--accent-light-color);
+}
+
+button:disabled {
+  background-color: var(--accent-light-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* @media (max-width: 992px) {
+  .button {
+    font-size: 12px;
+    padding: 12px 10px;
+  }
+} */

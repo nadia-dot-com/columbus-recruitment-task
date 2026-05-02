@@ -1,18 +1,23 @@
-import { API_KEY, API_URL } from "@/lib/api";
 import { ApiResponse } from "../types/response.types";
 
 export async function getStoreData(): Promise<ApiResponse> {
-  const res = await fetch(`${API_URL}`, {
+  const url = process.env.NEXT_PUBLIC_API_URL;
+  const key = process.env.API_KEY;
+
+  if (!url || !key) {
+    throw new Error("Missing API_URL or API_KEY in environment variables");
+  }
+
+  const res = await fetch(`${url}`, {
     headers: {
-      "x-api-key": `${API_KEY}`,
+      "x-api-key": `${key}`,
     },
   });
 
   if (!res.ok) {
+    console.error("Response status:", res.status);
     throw new Error("Failed to fetch store data");
   }
 
-  const data = await res.json();
-
-  return data;
+  return res.json();
 }

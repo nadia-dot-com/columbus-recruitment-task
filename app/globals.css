@@ -2,9 +2,11 @@
 
 :root {
   --background: #171717;
+  --background-light-color: #424141;
   --foreground: #fff;
-  --accent-color: #44d62c;
-  --accent-dark: #6D6E71;
+  --accent-color: #a1c92a;
+  --accent-light-color: #b9da56;
+  --accent-dark: #6d6e71;
 }
 
 html {
@@ -39,9 +41,25 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  width: 100%;
+  margin: 80px auto;
+  padding: 0 20px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  main {
+    padding: 0 12px;
+  }
 }

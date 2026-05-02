@@ -1,0 +1,40 @@
+.productCard {
+  background-color: var(--background-light-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 298px;
+  width: 100%;
+}
+.img {
+  max-width: 298px;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+
+.productInformation {
+    display: flex;
+    flex-direction: column;
+  text-align: left;
+  gap: 10px;
+
+  margin: 15px;
+  font-size: 14px;
+}
+.title {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.categoryTitle {
+  /* font-weight: 300; */
+}
+@media (max-width: 576px) {
+  .img {
+    height: 400px;
+    object-fit: contain;
+  }
+}

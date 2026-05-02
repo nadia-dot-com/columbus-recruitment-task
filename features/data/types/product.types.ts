@@ -11,7 +11,7 @@ export type Product = {
   brandName: string;
   brandLogo: string;
   price: number;
-  promotion: {
+  promotion?: {
     name: string;
     percentage: number;
   };

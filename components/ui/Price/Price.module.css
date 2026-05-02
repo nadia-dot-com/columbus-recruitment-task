@@ -1,0 +1,8 @@
+.promotionContainer {
+  display: flex;
+  gap: 5px;
+}
+.originalPrice {
+  color: var(--accent-dark);
+  text-decoration: line-through;
+}
