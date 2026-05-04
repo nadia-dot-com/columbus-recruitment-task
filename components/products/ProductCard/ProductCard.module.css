@@ -16,8 +16,8 @@
 }
 
 .productInformation {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
   text-align: left;
   gap: 10px;
 
@@ -27,14 +27,4 @@
 .title {
   font-size: 18px;
   cursor: pointer;
-}
-
-.categoryTitle {
-  /* font-weight: 300; */
-}
-@media (max-width: 576px) {
-  .img {
-    height: 400px;
-    object-fit: contain;
-  }
 }

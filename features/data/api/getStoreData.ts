@@ -8,9 +8,9 @@ export async function getStoreData(): Promise<ApiResponse> {
     throw new Error("Missing API_URL or API_KEY in environment variables");
   }
 
-  const res = await fetch(`${url}`, {
+  const res = await fetch(url, {
     headers: {
-      "x-api-key": `${key}`,
+      "x-api-key": key,
     },
   });
 

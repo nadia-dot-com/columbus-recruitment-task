@@ -14,6 +14,6 @@ export type Product = {
   promotion?: {
     name: string;
     percentage: number;
-  };
+  } | null;
 };
 
