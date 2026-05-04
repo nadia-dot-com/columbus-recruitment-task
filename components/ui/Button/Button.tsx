@@ -16,7 +16,6 @@ export function Button({ text, type, onClick, disabled, children }: Button) {
       onClick={onClick}
       type={type}
       disabled={disabled}
-      aria-label="button"
     >
       {children}
       {text}
