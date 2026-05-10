@@ -33,7 +33,6 @@ export function ProductCard({ product }: { product: Product }) {
         width="298"
         height="360"
         className={classes.img}
-        loading="lazy"
       />
       <div className={classes.productInformation}>
         <h3 className={classes.title}>{title}</h3>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header/Header";
 import { getStoreData } from "@/features/data/api/getStoreData";
 import { CartProvider } from "@/features/cart/context/CartProvider";
+import { roboto } from "./fonts/fonts";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { title } = await getStoreData();
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.className}>
       <body>
         <CartProvider>
           <Header />
