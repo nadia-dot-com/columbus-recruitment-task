@@ -12,11 +12,11 @@
   opacity: 1;
 }
 
-button:hover {
+.button:hover {
   background-color: var(--accent-light-color);
 }
 
-button:disabled {
+.button:disabled {
   background-color: var(--accent-light-color);
   cursor: not-allowed;
   pointer-events: none;

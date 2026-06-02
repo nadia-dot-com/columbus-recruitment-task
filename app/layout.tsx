@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header/Header";
 import { getStoreData } from "@/features/data/api/getStoreData";
 import { CartProvider } from "@/features/cart/context/CartProvider";
 import { roboto } from "./fonts/fonts";
+import { ErrorTracker } from "./errorTracker";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { title } = await getStoreData();
@@ -11,9 +12,6 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: title,
     description: "Recruitment Task Product Listing",
-    icons: {
-      icon: "/favicon.ico",
-    },
   };
 }
 
@@ -26,6 +24,7 @@ export default function RootLayout({
     <html lang="en" className={roboto.className}>
       <body>
         <CartProvider>
+          <ErrorTracker />
           <Header />
           {children}
         </CartProvider>

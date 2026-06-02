@@ -38,14 +38,14 @@ export function ProductCard({ product }: { product: Product }) {
         <h3 className={classes.title}>{title}</h3>
 
         <div className={classes.brandName}>
-          <Image src={brandLogo} alt={brandName} width="80" height="25" />
+          <Image src={brandLogo} alt={`brand name ${brandName}`} width="80" height="25" />
         </div>
 
         <p>{description}</p>
         <Price price={price} promotion={promotion?.percentage} />
 
-        <Button type="button" onClick={handlerAddToCart}>
-          {isLoading ? <LoadingSpinner /> : "BUY"}
+        <Button type="button" onClick={handlerAddToCart} ariaLabel={`Add ${title} to cart`}>
+          {isLoading ? <LoadingSpinner /> : "Buy"}
         </Button>
       </div>
     </div>

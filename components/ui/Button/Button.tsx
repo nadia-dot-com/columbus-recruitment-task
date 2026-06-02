@@ -7,15 +7,17 @@ type Button = {
   onClick?: (...args: any[]) => void;
   disabled?: boolean;
   children?: ReactNode;
+  ariaLabel?: string;
 };
 
-export function Button({ text, type, onClick, disabled, children }: Button) {
+export function Button({ text, type, onClick, disabled, children, ariaLabel }: Button) {
   return (
     <button
       className={classes.button}
       onClick={onClick}
       type={type}
       disabled={disabled}
+      aria-label={ariaLabel}
     >
       {children}
       {text}

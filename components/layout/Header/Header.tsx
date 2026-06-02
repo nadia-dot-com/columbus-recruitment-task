@@ -8,7 +8,13 @@ export async function Header() {
 
   return (
     <header className={classes.header}>
-      <Image src={url} alt={altText} width={120} height={60} priority/>
+      <Image
+        src={url}
+        alt={`logo ${altText}`}
+        width={120}
+        height={60}
+        priority
+      />
       <CartIcon />
     </header>
   );
