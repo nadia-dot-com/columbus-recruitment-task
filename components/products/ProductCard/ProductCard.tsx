@@ -10,16 +10,23 @@ import { useState } from "react";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner/LoadingSpinner";
 
 export function ProductCard({ product }: { product: Product }) {
-  const { image, title, description, brandName, brandLogo, price, promotion } =
-    product;
+  const {
+    image,
+    title,
+    description,
+    categoryLogo,
+    categoryName,
+    price,
+    promotion,
+  } = product;
 
   const [isLoading, setIsLoading] = useState(false);
   const { addToCart } = useCart();
 
-  const handlerAddToCart = async () => {
+  const handlerAddToCart = () => {
     try {
       setIsLoading(true);
-      await addToCart(product);
+      addToCart(product);
     } finally {
       setIsLoading(false);
     }
@@ -38,13 +45,24 @@ export function ProductCard({ product }: { product: Product }) {
         <h3 className={classes.title}>{title}</h3>
 
         <div className={classes.brandName}>
-          <Image src={brandLogo} alt={`brand name ${brandName}`} width="80" height="25" />
+          <Image
+            src={categoryLogo}
+            alt={`brand name ${categoryName}`}
+            width="70"
+            height="25"
+          />
         </div>
 
         <p>{description}</p>
         <Price price={price} promotion={promotion?.percentage} />
+      </div>
 
-        <Button type="button" onClick={handlerAddToCart} ariaLabel={`Add ${title} to cart`}>
+      <div className={classes.button}>
+        <Button
+          type="button"
+          onClick={handlerAddToCart}
+          ariaLabel={`Add ${title} to cart`}
+        >
           {isLoading ? <LoadingSpinner /> : "Buy"}
         </Button>
       </div>

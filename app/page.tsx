@@ -1,31 +1,33 @@
-import { getProducts } from "@/features/data/api/getProducts";
 import { ProductList } from "@/components/products/ProductList/ProductList";
-import { getBrands } from "@/features/data/api/getBrands";
 import { ProductNav } from "@/components/nav/products/ProductNav";
+import { getCategories } from "@/utils/getCategories";
+import { getStoreData } from "@/features/data/api/getStoreData";
 
 export default async function Home({
   searchParams,
 }: {
-  searchParams: {
-    brand?: string;
-  };
+  searchParams: Promise<{
+    category?: string;
+  }>;
 }) {
+  const { products } = await getStoreData();
+
   const params = await searchParams;
-  const products = await getProducts();
-  const brands = await getBrands();
-  const selectedBrand = params.brand;
+  const selectedCategory = params.category;
 
-  const filteredProducts = selectedBrand
-    ? products.filter((p) => p.brandName.replace(/\s/g, '') === selectedBrand)
-    : products;
+  const categories = getCategories(products || []);
 
-    console.log(products[0])
+  const filteredProducts = selectedCategory
+    ? (products || []).filter(
+        (p) => p.categoryName === selectedCategory,
+      )
+    : (products);
 
   return (
     <div>
       <main>
-        <ProductNav brands={brands} />
-        <ProductList products={filteredProducts} />
+        <ProductNav categories={categories} />
+        {products && <ProductList products={filteredProducts} />}
       </main>
     </div>
   );

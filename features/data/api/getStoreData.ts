@@ -1,22 +1,16 @@
 import { ApiResponse } from "../types/response.types";
 
 export async function getStoreData(): Promise<ApiResponse> {
-  const url = process.env.NEXT_PUBLIC_API_URL;
-  const key = process.env.API_KEY;
 
-  if (!url || !key) {
-    throw new Error("Missing API_URL or API_KEY in environment variables");
-  }
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/data`;
 
   const res = await fetch(url, {
-    headers: {
-      "x-api-key": key,
-    },
+    method: "GET",
+    cache: "no-store",
   });
 
   if (!res.ok) {
-    console.error("Response status:", res.status);
-    throw new Error("Failed to fetch store data");
+    throw new Error(`Failed to fetch store data: ${res.status}`);
   }
 
   return res.json();

@@ -15,9 +15,20 @@
 .brands {
   width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 15px;
+  padding: 0px 10px;
+}
 
-  box-shadow: -5px -10px var(--background);
+.brands li {
+  font-weight: 500;
+  color: var(--accent-color);
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--background);
+  padding: 10px;
+  letter-spacing: 1px;
 }
 
 .brandButton {
@@ -25,5 +36,5 @@
 }
 
 .active {
-    transform: scale(1.2);
+  transform: scale(1.05);
 }

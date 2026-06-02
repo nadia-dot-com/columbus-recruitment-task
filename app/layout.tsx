@@ -1,17 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header/Header";
-import { getStoreData } from "@/features/data/api/getStoreData";
 import { CartProvider } from "@/features/cart/context/CartProvider";
 import { roboto } from "./fonts/fonts";
 import { ErrorTracker } from "./errorTracker";
+import { getStoreData } from "@/features/data/api/getStoreData";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title } = await getStoreData();
+  const data = await getStoreData();
 
   return {
-    title: title,
-    description: "Recruitment Task Product Listing",
+    title: data?.title,
+    description: "Task Product Listing",
   };
 }
 

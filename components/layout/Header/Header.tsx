@@ -1,16 +1,16 @@
 import classes from "./Header.module.css";
 import Image from "next/image";
 import { CartIcon } from "../CartIcon/CartIcon";
-import { getLogo } from "@/features/data/api/getLogo";
+import { getStoreData } from "@/features/data/api/getStoreData";
 
 export async function Header() {
-  const { url, altText } = await getLogo();
+  const { logo } = await getStoreData();
 
   return (
     <header className={classes.header}>
       <Image
-        src={url}
-        alt={`logo ${altText}`}
+        src={logo.url}
+        alt={`logo ${logo.altText}`}
         width={120}
         height={60}
         priority

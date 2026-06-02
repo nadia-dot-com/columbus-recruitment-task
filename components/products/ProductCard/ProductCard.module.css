@@ -5,6 +5,7 @@
   overflow: hidden;
   max-width: 298px;
   width: 100%;
+  height: 100%;
 }
 .img {
   max-width: 298px;
@@ -20,11 +21,18 @@
   flex-direction: column;
   text-align: left;
   gap: 10px;
-
+  flex: 1;
   margin: 15px;
   font-size: 14px;
 }
+
 .title {
   font-size: 18px;
   cursor: pointer;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  margin: 0px  15px 15px 15px;
 }
