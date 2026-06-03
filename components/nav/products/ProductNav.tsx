@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import classes from "./ProductNav.module.css";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -10,10 +11,6 @@ export function ProductNav({ categories }: { categories: string[] }) {
 
   const activeCategory = searchParams.get("category");
 
-  const handleBrandClick = (categoryName: string) => {
-    router.push(`/?category=${encodeURIComponent(categoryName)}`);
-  };
-
   return (
     <nav className={classes.productNav} aria-label="brands">
       <ul className={classes.brands}>
@@ -22,10 +19,9 @@ export function ProductNav({ categories }: { categories: string[] }) {
             return (
               <li
                 key={category}
-                onClick={() => handleBrandClick(category)}
                 className={activeCategory === category ? classes.active : ""}
               >
-                {category.toUpperCase()}
+               <Link href={`/?category=${encodeURIComponent(category)}`}>{category.toUpperCase()}</Link>
               </li>
             );
           })}

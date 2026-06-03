@@ -1,10 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header/Header";
-import { CartProvider } from "@/features/cart/context/CartProvider";
 import { roboto } from "./fonts/fonts";
-import { ErrorTracker } from "./errorTracker";
 import { getStoreData } from "@/features/data/api/getStoreData";
+import { Providers } from "@/components/layout/Providers/Providers";
 
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getStoreData();
@@ -23,11 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={roboto.className}>
       <body>
-        <CartProvider>
-          <ErrorTracker />
+        <Providers>
           <Header />
           {children}
-        </CartProvider>
+        </Providers>
       </body>
     </html>
   );
