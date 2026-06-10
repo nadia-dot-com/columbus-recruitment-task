@@ -14,9 +14,22 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "fakestoreapi.com",
-      }
+      },
     ],
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+  cacheComponents: true,
+  // cacheLife: {
+  //   data: {
+  //     stale: 3600,
+  //     revalidate: 4200,
+  //     expire: 86400,
+  //   },
+  // },
 };
 
 export default nextConfig;

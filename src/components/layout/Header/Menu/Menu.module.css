@@ -1,0 +1,13 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-weight: 500;
+    color: var(--accent-dark);
+}
+
+.active,
+.menu li:hover {
+    color: var(--accent-color);
+}

@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px;
+    align-items:center;
+    gap: 30px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.button {
+    width: 400px;
+}
